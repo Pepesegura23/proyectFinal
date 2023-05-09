@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO</title>
+    <style type="css/text">
+      video {
+        width: 100%;
+        height: 100%;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+                                                                                                                                               
+   <script>
+      function hideVideo() {
+  const video = document.querySelector('video');
+  video.classList.add('hide');
+  }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <section class="animation">
+          <h1>Mi sitio web</h1>
+          <video src="./Logo animado cosmética natural, estilo orgánico, verde y canela.mp4" onended="hideVideo()"></video>
+
+        </section>
+        <nav class="menu">
+          <ul>
+            <li><a href="LOGIN.html">Inicio de sesión</a></li>
+            <li><a href="register.html">Registro de sesión</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+
+      
+
+</body>
+</html>
