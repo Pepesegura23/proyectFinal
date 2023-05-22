@@ -7,8 +7,14 @@ DROP TABLE IF EXISTS tipo_animal CASCADE;
 DROP TABLE IF EXISTS animal CASCADE;
 DROP TABLE IF EXISTS empleado CASCADE;
 DROP TABLE IF EXISTS tipo_cuidado CASCADE;
+DROP TABLE IF EXISTS visita;
 
 
+CREATE TABLE visita(
+	num_visita 		int,
+	fecha_visita	date,
+CONSTRAINT pk_visita PRIMARY JEY(num_visita)
+)
 CREATE TABLE venta(
 	cod_venta		serial,
 	fecha_pedido	date ,
@@ -163,7 +169,6 @@ INSERT INTO empleado (nombre, apellido, dni, direccion)
 
 INSERT INTO tipo_animal (tipo, zona) VALUES
 			('Cabra', 'A'),
-
 			('Vaca', 'B' ),
 			('Oveja', 'C'),
 			('Cerdo', 'D'),

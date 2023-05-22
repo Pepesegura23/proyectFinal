@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir producto</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f2f2;
+          margin: 0;
+          padding: 20px;
+        }
+    
+        h1 {
+          text-align: center;
+        }
+    
+        form {
+          max-width: 400px;
+          margin: 0 auto;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        label {
+          display: block;
+          margin-bottom: 8px;
+        }
+    
+        input[type="text"],
+        input[type="number"],
+        textarea {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          font-size: 14px;
+        }
+    
+        textarea {
+          height: 80px;
+          resize: vertical;
+        }
+    
+        input[type="submit"] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+    
+        input[type="submit"]:hover {
+          background-color: #45a049;
+        }
+      </style>
+     <script>
+       var successMessage = document.createElement("p");
+       successMessage.textContent = "Producto guardado con éxito";
+       successMessage.style.color = "green";
+       document.body.appendChild(successMessage);
+     
+       // Restablecer el formulario
+       document.getElementById("product-form").reset();
+     
+    </script>
+</head>
+<body>
+    <h1>Añadir Producto</h1>
+    <form>
+      <label for="image-url">URL de la imagen:</label><br>
+      <input type="text" id="image-url" name="image-url" required><br><br>
+      <label for="product-name">Nombre del producto:</label><br>
+      <input type="text" id="product-name" name="product-name" required><br><br>
+      <label for="product-price">Precio del producto:</label><br>
+      <input type="number" id="product-price" name="product-price" step="0.01" required><br><br>
+      <label for="product-description">Descripción del producto:</label><br>
+      <textarea id="product-description" name="product-description" required></textarea><br><br>
+      <label for="categ">Categoría</label>
+      <input type="text" name="categ" id="categ" placeholder="Categoria del producto">
+      <br>
+      <label for="stock">Cantidad disponible </label>
+      <input type="numeric" name="stock" id="stock" placeholder="Cantidad disponible del producto">
+      <input type="submit" value="Añadir Producto">
+      
+    
+    </form>
+   <a href="ADMINproductos.html"><input type="submit"  href="visitaAdmin.html "value="Volver atrás"></a> 
+</html>

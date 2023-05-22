@@ -167,6 +167,7 @@ function mostrarError(elemento, mensaje) {
   resaltarCampo(elemento, false);
 }
 
+
 // Función para eliminar los mensajes de error y restaurar el color del campo
 function limpiarErrores() {
   const errores = document.querySelectorAll('.error');
@@ -182,11 +183,19 @@ function limpiarErrores() {
 }
 
 // Función para manejar el evento de envío del formulario
-function enviarSolicitud(event) {
+const error = "El nombre debe contener más de 3 letras";
+
+  function enviarSolicitud(event) {
+  const nombre = document.getElementById('nombre').value;
+
   if (nombre.length < 3) {
-    mostrarError(document.getElementById('nombre'), 'El nombre debe tener al menos 3 letras');
+    mostrarError(document.getElementById('nombre'), error);
     return;
   }
+
+
+}
+
 
   event.preventDefault(); // Evitar que el formulario se envíe
 
@@ -214,7 +223,7 @@ function enviarSolicitud(event) {
   // Mostrar mensaje de éxito
   document.getElementById('solicitudForm').style.display = 'none';
   document.getElementById('mensajeExito').style.display = 'block';
-}
+
 
 // Agregar eventos para resaltar los campos cuando se cambia su contenido
 const campos = document.querySelectorAll('input, textarea');
