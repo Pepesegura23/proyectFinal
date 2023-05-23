@@ -70,9 +70,30 @@
         </div>
       </section>
       <script>
-        document.getElementById("password?").onclick = function(){
-            var message = alert("Si no la recuerdas,jodete")    
-          }
+      document.getElementById("passwordLink").onclick = function() {
+          alert("Si no la recuerdas, piensala bien ");
+        }
+
+      document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita que se envíe el formulario
+
+        // Obtener los valores de los campos
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Validar los campos (puedes agregar más validaciones según tus necesidades)
+        if (username === "" || password === "") {
+          alert("Por favor, complete todos los campos");
+          return;
+        }
+
+        // Aquí puedes enviar los datos del formulario al servidor o realizar otras acciones necesarias
+        // Por ejemplo, podrías hacer una llamada AJAX para enviar los datos al servidor
+        
+        // Mostrar un mensaje de éxito
+        alert("Inicio de sesión exitoso");
+        });
+   
     </script>
 </body>
 </html>

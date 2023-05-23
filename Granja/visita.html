@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud de visita a la granjaescuela</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .error {
+      color: red;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+      input:valid,
+      textarea:valid {
+        border-color: green;
+      }
+
+      input:invalid,
+      textarea:invalid {
+        border-color: red;
+      }
+
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      max-width: 150px;
+      margin-top: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .success-message {
+      display: none;
+      color: green;
+      text-align: center;
+      margin-top: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        margin: 20px;
+      }
+    }
+  </style>
+ 
+   <link rel="stylesheet" href="../../assets/vendor/aos/dist/aos.css">
+   <script src="../../assets/vendor/aos/dist/aos.js"></script>
+   <script>
+     $(document).on('ready', function () {
+       // initialization of aos
+       AOS.init({
+         duration: 650,
+         once: true
+       });
+     });
+   </script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 mb-11">
+        <div class="card" data-aos="fade-up">
+          <div class="card-body" data-aos="fade-up">
+            <pre><code class="html"><div data-aos="fade-up">
+      <img src="logo1.png" alt="Logo" class="logo">
+  
+</div>
+      </div>
+      <div class="header">
+      <h1>Solicitud de visita a la granjaescuela</h1>
+    </div>
+
+    <form id="solicitudForm">
+      <div class="form-group">
+        <label for="nombre">Nombre de la empresa o el solicitante de la visir:</label>
+        <input type="text" id="nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="fecha">Fecha de visita:</label>
+        <input type="date" id="fecha" required>
+      </div>
+
+      <div class="form-group">
+        <label for="comentario">Comentario:</label>
+        <textarea id="comentario"></textarea>
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Enviar solicitud</button>
+      </div>
+    </form>
+
+    <div id="mensajeExito" class="success-message">
+      ¡Solicitud enviada con éxito!
+    </div>
+  </div>
+</div></code></pre>
+</div>
+</div>
+</div>
+  <script>
+   // Función para resaltar el campo en verde si es válido o en rojo si es inválido
+function resaltarCampo(elemento, esValido) {
+  if (esValido) {
+    elemento.style.borderColor = 'green';
+  } else {
+    elemento.style.borderColor = 'red';
+  }
+}
+
+// Función para mostrar mensajes de error
+function mostrarError(elemento, mensaje) {
+  const errorElemento = document.createElement('div');
+  errorElemento.className = 'error';
+  errorElemento.textContent = mensaje;
+
+  elemento.parentNode.appendChild(errorElemento);
+
+  // Resaltar el campo en rojo
+  resaltarCampo(elemento, false);
+}
+
+
+// Función para eliminar los mensajes de error y restaurar el color del campo
+function limpiarErrores() {
+  const errores = document.querySelectorAll('.error');
+  errores.forEach(function (error) {
+    error.parentNode.removeChild(error);
+  });
+
+  // Restaurar el color de los campos
+  const campos = document.querySelectorAll('input, textarea');
+  campos.forEach(function (campo) {
+    campo.style.borderColor = '';
+  });
+}
+
+// Función para manejar el evento de envío del formulario
+const error = "El nombre debe contener más de 3 letras";
+
+  function enviarSolicitud(event) {
+  const nombre = document.getElementById('nombre').value;
+
+  if (nombre.length < 3) {
+    mostrarError(document.getElementById('nombre'), error);
+    return;
+  }
+
+
+}
+
+
+  event.preventDefault(); // Evitar que el formulario se envíe
+
+  limpiarErrores(); // Limpiar mensajes de error anteriores
+
+  // Obtener los valores de los campos
+  const nombre = document.getElementById('nombre').value;
+  const fecha = document.getElementById('fecha').value;
+  const comentario = document.getElementById('comentario').value;
+
+  // Validar los campos
+  if (nombre === '') {
+    mostrarError(document.getElementById('nombre'), 'Por favor, ingrese su nombre');
+    return;
+  }
+
+  if (fecha === '') {
+    mostrarError(document.getElementById('fecha'), 'Por favor, seleccione una fecha');
+    return;
+  }
+
+  // Aquí puedes realizar las acciones necesarias para enviar la solicitud al servidor,
+  // por ejemplo, mediante una llamada AJAX
+
+  // Mostrar mensaje de éxito
+  document.getElementById('solicitudForm').style.display = 'none';
+  document.getElementById('mensajeExito').style.display = 'block';
+
+
+// Agregar eventos para resaltar los campos cuando se cambia su contenido
+const campos = document.querySelectorAll('input, textarea');
+campos.forEach(function (campo) {
+  campo.addEventListener('input', function () {
+    resaltarCampo(campo, campo.value !== '');
+  });
+});
+
+// Agregar evento de envío del formulario
+document.getElementById('solicitudForm').addEventListener('submit', enviarSolicitud);
+
+  </script>
+</body>
+</html>
