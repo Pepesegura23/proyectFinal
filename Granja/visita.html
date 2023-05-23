@@ -14,6 +14,7 @@
       padding: 0;
     }
 
+
     .error {
       color: red;
     }
@@ -111,11 +112,31 @@
       }
     }
   </style>
+ 
+   <link rel="stylesheet" href="../../assets/vendor/aos/dist/aos.css">
+   <script src="../../assets/vendor/aos/dist/aos.js"></script>
+   <script>
+     $(document).on('ready', function () {
+       // initialization of aos
+       AOS.init({
+         duration: 650,
+         once: true
+       });
+     });
+   </script>
 </head>
 <body>
   <div class="container">
-    <div class="header">
+    <div class="row">
+      <div class="col-sm-6 mb-11">
+        <div class="card" data-aos="fade-up">
+          <div class="card-body" data-aos="fade-up">
+            <pre><code class="html"><div data-aos="fade-up">
       <img src="logo1.png" alt="Logo" class="logo">
+  
+</div>
+      </div>
+      <div class="header">
       <h1>Solicitud de visita a la granjaescuela</h1>
     </div>
 
@@ -144,7 +165,10 @@
       ¡Solicitud enviada con éxito!
     </div>
   </div>
-
+</div></code></pre>
+</div>
+</div>
+</div>
   <script>
    // Función para resaltar el campo en verde si es válido o en rojo si es inválido
 function resaltarCampo(elemento, esValido) {
